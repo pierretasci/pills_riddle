@@ -66,23 +66,11 @@ br{
 }
 
 #pageBody{
-	float:right;
-	position:relative;
-	left:-50%;
+	width: 1300px;
+	margin: auto;
 }
-#pageFooter{
-	text-align: right;
-}
-
-#riddleText{
-	font-size: 18px;
-	width: 100%;
-	clear: both;
-}
-.columns, #riddleText{
+.columns{
 	float: left;
-	position: relative;
-	left:50%;
 	margin: auto;
 }
 
@@ -93,6 +81,12 @@ br{
 
 #middleSide{
 	width: 55%	;
+
+#riddleText{
+	text-align: center;
+	font-size: 18px;
+	width: 100%;
+	clear: both;
 }
 
 #answer{
@@ -109,4 +103,13 @@ br{
 
 button{
 	font-size: 17px;
+}
+}
+#pageFooter{
+	text-align: right;
+}
+
+#answer{
+	font-size: 20px;
+	text-align: center;
 }
