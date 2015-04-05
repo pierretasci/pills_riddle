@@ -81,6 +81,7 @@ br{
 
 #middleSide{
 	width: 55%	;
+}
 
 #riddleText{
 	text-align: center;
@@ -104,7 +105,7 @@ br{
 button{
 	font-size: 17px;
 }
-}
+
 #pageFooter{
 	text-align: right;
 }
