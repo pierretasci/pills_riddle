@@ -6,6 +6,7 @@ if(Math.random()>0.5){poisonWeight = -0.1};
 var allPills=[];//array of all the Pill objects 
 
 var actionWindow = document.getElementById('actionWindow');
+var pillsContainer = document.getElementById('pillsContainer');
 var group1 = document.getElementById('group1');
 var group2 = document.getElementById('group2');
 
@@ -18,7 +19,7 @@ var addPills = function() {
 		allPills[i] = new Pill(i);
 		allPills[i].create();
 	}
-	actionWindow.innerHTML+='<div class="blank"></div>';
+	pillsContainer.innerHTML+='<div class="blank"></div>';
 }
 addPills();
 
@@ -27,14 +28,35 @@ var pillID = function(num){
 	return document.getElementById('pill_'+num);
 }
 
-//event listeners
-var pillEventListener = function(pillNum) {
-	return pillID(pillNum).addEventListener('click', function() {
-			allPills[pillNum].choose();
-		});
+//Creates an event listener for a given pill (mousedown and mouseup)
+var pillMouseDown = function(pillNum){
+	return pillID(pillNum).addEventListener('mousedown',function() {
+		allPills[pillNum].choose();
+	});
+	// return pillID(pillNum).onmousedown=function(){allPills[pillNum].choose();}
+}
+var pillMouseUp = function(pillNum){
+	return pillID(pillNum).addEventListener('mouseup',function() {
+		allPills[pillNum].unchoose();
+	});
+	// return pillID(pillNum).onmouseup=function(){allPills[pillNum].unchoose();}
+}
+var pillClick = function(pillNum){
+	return pillID(pillNum).addEventListener('click',function() {
+		allPills[pillNum].unchoose();
+		//this function seems necessary to fix a bug with the onmouseup and onmousedown events
+		//when you click and drag the mouse out of the pill, it seems to get stuck on choose()
+	});
 }
 
-//creates an event listener for each pill getting clicked on. 
+
+//creates the MouseUp and MouseDown event listeners for all pills 
 for(var i=1;i<numPills+1;i++){
-	pillEventListener(i);
+	pillClick(i);
+	pillMouseDown(i);
+	pillMouseUp(i);
 }
+
+
+
+

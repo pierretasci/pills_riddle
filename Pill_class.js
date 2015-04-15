@@ -6,13 +6,14 @@ var Pill = function(num) {
 	this.num=num;
 	this.isPoison = false;
 	this.weight = 1;
-	this.group = 0;
 	this.chosen = false;
+	//Group number: should be either 1 or 2 depending on which side of the scale it's on
+	this.group = 0;
 } 
 
 //code for making a pill object. Also checks to see if it's the poison
 Pill.prototype.create = function() {
-	actionWindow.innerHTML+='<div class="pill" id="pill_'+this.num+'">'+this.num+'<div class="vertCent"></div></div>';
+	pillsContainer.innerHTML+='<div class="pill" id="pill_'+this.num+'">'+this.num+'<div class="vertCent"></div></div><div class="betweenPills"></div>';
 	if (poison==this.num){
 		this.isPoison=true;
 		this.weight+=poisonWeight;
@@ -24,15 +25,15 @@ Pill.prototype.create = function() {
 Pill.prototype.choose = function() {
 	var pillClass = pillID(this.num).className;
 	var selectedClassIndex = pillID(this.num).className.search('selected');
-
-	if(selectedClassIndex<0){//if it doesn't have the class 'selected'	
-		pillClass += ' selected';
-		this.chosen = true;
-	}
-	else{
-		pillClass = pillClass.replace(' selected','');
-		this.chosen = false;
-	}
+	pillClass += ' selected';
+	this.chosen = true;
 	return pillID(this.num).className = pillClass;
 }
 
+Pill.prototype.unchoose = function() {
+	var pillClass = pillID(this.num).className;
+	var selectedClassIndex = pillID(this.num).className.search('selected');
+	pillClass = pillClass.replace(' selected','');
+	this.chosen = false;
+	return pillID(this.num).className = pillClass;
+}
