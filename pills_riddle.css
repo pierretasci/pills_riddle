@@ -19,6 +19,7 @@ html{
 
 #navBar ul{
 	list-style-type: none;
+	padding: 0px;
 }
 
 #navBar ul li{
@@ -67,7 +68,6 @@ div{
 #actionWindow{
 	width:800px;
 	margin: 0px auto;
-	height: 120px;
 }
 
 
@@ -100,12 +100,15 @@ div{
 
 .scale{
 	text-align: center;
-	width: 400px;
-	margin: 1%;
-	border: 1px solid black;
-
+	width: 46%;
+	margin:1%;
+	float: left;
+	
 }
 
+.blank{
+	clear:both;
+}
 #buttonContainer{
 	text-align: center;
 	width: 100%;

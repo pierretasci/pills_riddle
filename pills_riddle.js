@@ -9,15 +9,18 @@ var actionWindow = document.getElementById('actionWindow');
 var group1 = document.getElementById('group1');
 var group2 = document.getElementById('group2');
 
-
 //Create the pills in HTML
 //using the Pill class defined in Pill_class.js
 // allPills[0] is undefined, it starts from index 1
 // so that the pill ID matches its index in allPills[]
-for(var i=1;i<numPills+1;i++){
-	allPills[i] = new Pill(i);
-	allPills[i].create();
+var addPills = function() {
+	for(var i=1;i<numPills+1;i++){
+		allPills[i] = new Pill(i);
+		allPills[i].create();
+	}
+	actionWindow.innerHTML+='<div class="blank"></div>';
 }
+addPills();
 
 //Easy way to access each pill element by its html ID
 var pillID = function(num){
@@ -25,11 +28,6 @@ var pillID = function(num){
 }
 
 //event listeners
-var initEventListeners = function(){ 
-	for(var i=1;i<numPills+1;i++){
-		pillID(i).click(function() {
-			allPills[i].choose();
-		});
-	};
-	console.log('hi');
-}
+	pillID(3).addEventListener('click',console.log('hi'));
+
+
