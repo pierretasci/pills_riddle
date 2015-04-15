@@ -12,7 +12,7 @@ var Pill = function(num) {
 
 //code for making a pill object. Also checks to see if it's the poison
 Pill.prototype.create = function() {
-	actionWindow.innerHTML+='<div class="pill" id="pill_'+this.num+'">'+this.num+'</div>';
+	actionWindow.innerHTML+='<div class="pill" id="pill_'+this.num+'">'+this.num+'<div class="vertCent"></div></div>';
 	if (poison==this.num){
 		this.isPoison=true;
 		this.weight+=poisonWeight;

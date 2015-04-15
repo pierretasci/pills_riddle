@@ -65,6 +65,13 @@ div{
 #pillsContainer{
 }
 
+.vertCent{
+	height:50%;
+	display:inline-block;
+	border:none;
+
+}
+
 #actionWindow{
 	width:800px;
 	margin: 0px auto;

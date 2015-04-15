@@ -28,6 +28,13 @@ var pillID = function(num){
 }
 
 //event listeners
-	pillID(3).addEventListener('click',console.log('hi'));
+var pillEventListener = function(pillNum) {
+	return pillID(pillNum).addEventListener('click', function() {
+			allPills[pillNum].choose();
+		});
+}
 
-
+//creates an event listener for each pill getting clicked on. 
+for(var i=1;i<numPills+1;i++){
+	pillEventListener(i);
+}
