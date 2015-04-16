@@ -67,6 +67,11 @@ function addClass(el, class) {
 }
 
 function removeClass(el, class) {
-	el.className = el.className.replace(/(\s)?this-one(\s)?/g, '');
+	//el.className = el.className.replace(new RegExp("/(\s)?"+class+"(\s)?","g"), '');
+	// A more readable version
+	var classes = el.className.split(' ');
+	el.className = classes.filter(function(c) {
+		return c !== class;
+	}).join(' ');
 }
 
