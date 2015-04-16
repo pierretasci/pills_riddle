@@ -1,3 +1,5 @@
+'use strict';
+
 var numPills = 12;
 var poison = parseInt(1+Math.random()*numPills);
 var poisonWeight = 0.1;
@@ -50,13 +52,21 @@ var pillClick = function(pillNum){
 }
 
 
-//creates the MouseUp and MouseDown event listeners for all pills 
+// creates the MouseUp and MouseDown event listeners for all pills
 for(var i=1;i<numPills+1;i++){
 	pillClick(i);
 	pillMouseDown(i);
 	pillMouseUp(i);
 }
 
+// GLOBAL HELPER FUNCTIONS
+function addClass(el, class) {
+	var classes = el.className.split(' ');
+	classes.push(class);
+	el.className = classes.join(' ');
+}
 
-
+function removeClass(el, class) {
+	el.className = el.className.replace(/(\s)?this-one(\s)?/g, '');
+}
 
