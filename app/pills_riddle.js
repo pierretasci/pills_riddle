@@ -60,18 +60,18 @@ for(var i=1;i<numPills+1;i++){
 }
 
 // GLOBAL HELPER FUNCTIONS
-function addClass(el, class) {
+function addClass(el, c) {
 	var classes = el.className.split(' ');
-	classes.push(class);
+	classes.push(c);
 	el.className = classes.join(' ');
 }
 
-function removeClass(el, class) {
+function removeClass(el, c) {
 	//el.className = el.className.replace(new RegExp("/(\s)?"+class+"(\s)?","g"), '');
 	// A more readable version
 	var classes = el.className.split(' ');
-	el.className = classes.filter(function(c) {
-		return c !== class;
+	el.className = classes.filter(function(cN) {
+		return cN !== c;
 	}).join(' ');
 }
 
