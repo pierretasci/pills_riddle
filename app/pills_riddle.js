@@ -60,13 +60,13 @@ for(var i=1;i<numPills+1;i++){
 }
 
 // GLOBAL HELPER FUNCTIONS
-function addClass(el, class) {
+function addClass(el, cls) {
 	var classes = el.className.split(' ');
-	classes.push(class);
+	classes.push(cls);
 	el.className = classes.join(' ');
 }
 
-function removeClass(el, class) {
+function removeClass(el, cls) {
 	el.className = el.className.replace(/(\s)?this-one(\s)?/g, '');
 }
 
