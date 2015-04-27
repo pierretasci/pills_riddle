@@ -91,17 +91,15 @@ listeners.push(function(pillNum) {
 			dragging. We do this through the data transfer proporty on the event
 			object
 		 */
-		e.dataTransfer.setData("application/pill_number", pillNum);
 	});
 });
 
 var dragEnterListener = function(e) {
 	/*
-		Drag enter is how we tell the browser that if the user drags something
+		TODO: Drag enter is how we tell the browser that if the user drags something
 		here, they can drop it here. We do this by preventing the default 
-		behavior of the event which is not allowing the drop.
+		behavior of the event which is to not allowing the drop.
 	 */
-	e.preventDefault();
 };
 group1.addEventListener('dragenter', dragEnterListener);
 group2.addEventListener('dragenter', dragEnterListener);
@@ -114,10 +112,6 @@ var dropListener = function(e) {
 		need to read the data in the event object to know which pill to 
 		add into the bucket.
 	 */
-	var pillNum = e.dataTransfer.getData("application/pill_number");
-	var pillEl = pillID(pillNum).parentElement.removeChild(pillID(pillNum));
-	var group = e.currentTarget;
-	group.appendChild(pillEl);
 }
 group1.addEventListener('drop', dropListener);
 group2.addEventListener('drop', dropListener);
