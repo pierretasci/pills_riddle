@@ -11,6 +11,8 @@ var Pill = function(num) {
 	this.group = 0;
 } 
 
+var zCounter=1;
+
 //code for making a pill object. Also checks to see if it's the poison
 Pill.prototype.create = function() {
 	pillsContainer.innerHTML+='<div class="pill" id="pill_'+this.num+'">'+this.num+'<div class="vertCent"></div></div><div class="betweenPills"></div>';
@@ -24,15 +26,15 @@ Pill.prototype.create = function() {
 //returns the className of the pill
 Pill.prototype.choose = function() {
 	var pillClass = pillID(this.num).className;
-	var selectedClassIndex = pillID(this.num).className.search('selected');
 	pillClass += ' selected';
 	this.chosen = true;
+	zCounter++;
+	if(this.chosen){pillID(this.num).style.zIndex=zCounter;}//keep this pill above other pills
 	return pillID(this.num).className = pillClass;
 }
 
 Pill.prototype.unchoose = function() {
 	var pillClass = pillID(this.num).className;
-	var selectedClassIndex = pillID(this.num).className.search('selected');
 	pillClass = pillClass.replace(' selected','');
 	this.chosen = false;
 	return pillID(this.num).className = pillClass;
